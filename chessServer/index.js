@@ -1,7 +1,7 @@
 require('dotenv').config()
 var app = require('express')();
-var http = require('http').createServer(app);
-var io = require('socket.io')(http);
+var https = require('https').createServer(app);
+var io = require('socket.io')(https);
 
 var ongoingGames = [];
 
@@ -150,6 +150,6 @@ io.on('connection', (socket) => {
 
 console.log(process.env);
 
-http.listen(process.env.PORT, () => {
+https.listen(process.env.PORT, () => {
   console.log('listening on *:' + process.env.PORT);
 });

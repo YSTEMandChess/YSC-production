@@ -1,5 +1,5 @@
 require('dotenv').config();
-var http = require('http');
+var https = require('https');
 var stockfish = require("stockfish");
 var chess = require("chess.js");
 
@@ -7,7 +7,7 @@ const querystring = require('querystring');
 const url = require('url');
 
 //create a server object:
-http.createServer((req, res) => {
+https.createServer((req, res) => {
 
 
     res.setHeader("Access-Control-Allow-Origin", "*")
