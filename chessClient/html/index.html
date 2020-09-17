@@ -51,7 +51,7 @@
 
   function letParentKnow() {
     if(flag === false) {
-      parent.postMessage("ReadyToRecieve", "http://52.249.251.163");
+      parent.postMessage("ReadyToRecieve", "https://ystemandchess.com");
       console.log("message sent");
     }
     flag = true;
@@ -100,7 +100,7 @@
   }
 
   function sendToParent(fen) {
-    parent.postMessage(fen, "http://52.249.251.163");
+    parent.postMessage(fen, "https://ystemandchess.com");
   }
 
   // update the board position after the piece snap
@@ -146,15 +146,15 @@
   }
 
   function sendGameOver() {
-    parent.postMessage("gameOver", "http://52.249.251.163");
+    parent.postMessage("gameOver", "https://ystemandchess.com");
   }
 
   function sendDraw() {
-    parent.postMessage("draw", "http://52.249.251.163");
+    parent.postMessage("draw", "https://ystemandchess.com");
   }
 
   function sendCheckmate() {
-    parent.postMessage("checkmate", "http://52.249.251.163");
+    parent.postMessage("checkmate", "https://ystemandchess.com");
   }
 
   var config = {
