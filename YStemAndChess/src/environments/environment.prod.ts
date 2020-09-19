@@ -10,7 +10,8 @@ export const environment = {
   },
   urls: {
     middlewareURL: 'https://ystemandchess.com/middleware',
-    chessClientURL: 'http://52.249.251.163:8500',
+    //chessClientURL: 'http://52.249.251.163:8500',
+    chessClientURL: 'https://ystemandchess.com/chessclient',
     stockFishURL : 'https://ystemandchess.com/stockfishserver'
   }
 };
