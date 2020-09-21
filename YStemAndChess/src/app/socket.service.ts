@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 })
 export class SocketService {
   private socket;
-  private socketEndpoint = "http://52.249.251.163:8400"; //Issue: need to convert 'http://52.249.251.163:8400' to https
+  //private socketEndpoint = "http://52.249.251.163:8400";
+  private socketEndpoint = "https://ystemandchess.com/chessserver";
 
   constructor() {
     this.socket = io(this.socketEndpoint);
