@@ -2,7 +2,6 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
-//Issue: need to convert 'http://52.249.251.163:8500' to https
 export const environment = {
   production: false,
   agora: {
@@ -10,9 +9,9 @@ export const environment = {
   },
   urls: {
     middlewareURL: 'https://ystemandchess.com/middleware',
-    //chessClientURL: 'http://52.249.251.163:8500',
-    chessClientURL: 'https://ystemandchess.com/chessclient',
-    stockFishURL : 'https://ystemandchess.com/stockfishserver'
+    chessClientURL: 'https://ystemandchess.com/chessclient/',
+    stockFishURL : 'https://ystemandchess.com/stockfishserver',
+    originURL: 'https://ystemandchess.com'
   }
 };
 

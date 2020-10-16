@@ -1,5 +1,5 @@
 require('dotenv').config();
-var https = require('https');
+var http = require('http').createServer();
 var stockfish = require("stockfish");
 var chess = require("chess.js");
 
@@ -7,11 +7,11 @@ const querystring = require('querystring');
 const url = require('url');
 
 //create a server object:
-https.createServer((req, res) => {
+http.on('request', (req, res) => {
 
-
+    console.log("Created stockfish server.");
     res.setHeader("Access-Control-Allow-Origin", "*")
-    if ((url.parse(req.url, true).search) != null) {
+    //if ((url.parse(req.url, true).search) != null) {
 
 
         var engine = stockfish();
@@ -36,11 +36,13 @@ https.createServer((req, res) => {
         engine.postMessage("uci");
         engine.postMessage(`position fen ${params.fen}`);
         engine.postMessage(`go depth ${params.level}`);
-    }
-    else {
+    //}
+    /*else {
         res.write("Please provide all parameters");
         res.end();
-    }
+    }*/
 
-}).listen(process.env.PORT); //the server object listens on port 8080
-console.log("listening on *:" + process.env.PORT);
+})
+http.listen(process.env.PORT, () => {
+	console.log("listening on *:" + process.env.PORT); //listens on port 8080
+});

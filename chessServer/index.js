@@ -1,14 +1,15 @@
 require('dotenv').config()
 var app = require('express')();
-var https = require('https').createServer(app);
-var io = require('socket.io')(https);
+var http = require('http').createServer(app).listen(process.env.PORT);
+var io = require('socket.io').listen(http);
 
 var ongoingGames = [];
 
-io.on('connection', (socket) => {
+io.sockets.on('connection', (socket) => {
   console.log('a user connected');
   // On the connection of a new game being found.
   socket.on('newGame', (msg) => {
+	  console.log("WE ENTERED NEW GAME");
     newGame = true;
     var parsedmsg = JSON.parse(msg);
     ongoingGames.forEach(element => {
@@ -148,8 +149,12 @@ io.on('connection', (socket) => {
   });
 });
 
+io.sockets.on('disconnect', () => {
+	console.log('we are disconnecting');
+});
+
 console.log(process.env);
 
-https.listen(process.env.PORT, () => {
+/*http.listen(process.env.PORT, () => {
   console.log('listening on *:' + process.env.PORT);
-});
+});*/

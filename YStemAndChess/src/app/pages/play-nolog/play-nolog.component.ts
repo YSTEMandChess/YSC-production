@@ -26,7 +26,8 @@ export class PlayNologComponent implements OnInit {
 
     // Listen to message from child window
     eventer(messageEvent, (e) => {
-      if (e.origin == environment.urls.chessClientURL) {
+      console.log("My origin: " + e.origin);
+      if (e.origin == environment.urls.originURL) {
         // Means that there is the board state and whatnot
         console.log("this does work every time");
         let info = e.data;
@@ -44,7 +45,7 @@ export class PlayNologComponent implements OnInit {
           this.currentFEN = info;
           this.level = parseInt((<HTMLInputElement>document.getElementById('movesAhead')).value);
           if(this.level <= 1) this.level = 1;
-          else if (this.level >= 30) this.level = 30;
+          else if (this.level >= 10) this.level = 10;
           this.httpGetAsync(`${environment.urls.stockFishURL}/?level=${this.level}&fen=${this.currentFEN}`, (response) => {
             if (this.isReady) {
               console.log("sending message " + JSON.stringify({ boardState: response, color: this.color }));
@@ -83,7 +84,7 @@ export class PlayNologComponent implements OnInit {
     if (this.color == "black") {
       this.level = parseInt((<HTMLInputElement>document.getElementById('movesAhead')).value);
       if(this.level <= 1) this.level = 1;
-      else if (this.level >= 30) this.level = 30;
+      else if (this.level >= 10) this.level = 10;
       this.httpGetAsync(`/chessclient/?level=${this.level}&fen=${this.currentFEN}`, (response) => {
         if (this.isReady) {
           console.log("sending message" + response);
