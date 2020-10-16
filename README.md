@@ -124,5 +124,7 @@ Adding new lessons to the YStem app is farily simple. All one must do is under t
 
 Once this is added to the database the lesson will be generated when a user reaches that lesson number. I like to use https://lichess.org/editor to create a starting lesson FEN. From there it is easiest to get the ending lesson FEN by going to that lesson number on the YStem app and moving to the desired end position. The current FEN will be output in the browser console. The reason the end FEN cannot be achieved in other editors is becuase they do not update color and turns completed. Plus you have to see which moves Stockfish makes when you move to the end square. Stockfish will always make the same move if you do, becuase stockfish will only make the optimal move.
 
+# Chess Board Fix for NGINX
 
+The fix to display the chessboard on our deployed website was changing the path in our source code from "https://ystemandchess.com/chessclient" to "https://ystemandchess.com/chessclient/". After doing this, we created a reverse proxy, along with an upstream websocket, to direct the docker exposed port for chessclient to this path. 
 
