@@ -1,6 +1,6 @@
 require('dotenv').config();
-var http = require('http').createServer();
-var stockfish = require("stockfish");
+var http = require('http').createServer(); //Create nodejs server
+var stockfish = require("stockfish"); 
 var chess = require("chess.js");
 
 const querystring = require('querystring');
@@ -9,12 +9,11 @@ const url = require('url');
 //create a server object:
 http.on('request', (req, res) => {
 
-    console.log("Created stockfish server.");
-    res.setHeader("Access-Control-Allow-Origin", "*")
+    res.setHeader("Access-Control-Allow-Origin", "*"); //Set the header for stockfish
+    res.setHeader("Content-Type", "application/json");
     //if ((url.parse(req.url, true).search) != null) {
 
-
-        var engine = stockfish();
+        engine = stockfish(); // Initialize stockfish server
 
         engine.onmessage = function (line) {
             if (line.substring(0, 4) == "best") {
@@ -27,22 +26,15 @@ http.on('request', (req, res) => {
             }
         };
 
+        let params = querystring.parse((url.parse(req.url, true).search).substring(1));
 
-        let params = querystring.parse((url.parse(req.url, true).search).substring(1))
-
-        console.log(`Game notation found: ${params.fen}`);
-        console.log(`Level found: ${params.level}`);
-
-        engine.postMessage("uci");
+        //engine.postMessage("uci");
         engine.postMessage(`position fen ${params.fen}`);
         engine.postMessage(`go depth ${params.level}`);
-    //}
-    /*else {
-        res.write("Please provide all parameters");
-        res.end();
-    }*/
+	process.removeAllListeners();
+});
 
-})
+//Listen on the requested port
 http.listen(process.env.PORT, () => {
-	console.log("listening on *:" + process.env.PORT); //listens on port 8080
+	console.log("listening on *:" + process.env.PORT);
 });
