@@ -1,6 +1,6 @@
-DEV TEAM MEETINGS on SKYPE at 530 Pm MTN every Wednesday
-SECURITY TEAM MEETINGS on SKYPE at 1230 Pm MTN every Monday
-Search devin_1496 and send message for access to Team Chats, answer any questions, receive guidance, and Network.
+#DEV TEAM MEETINGS on SKYPE at 530 Pm MTN every Wednesday
+#SECURITY TEAM MEETINGS on SKYPE at 1230 Pm MTN every Monday
+#Search devin_1496 and send message for access to Team Chats, answer any questions, receive guidance, and Network.
 
 
 
