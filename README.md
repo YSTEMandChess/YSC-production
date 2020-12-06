@@ -1,7 +1,6 @@
-# DEV TEAM MEETINGS on SKYPE at 530 Pm MTN every Wednesday
-# SECURITY TEAM MEETINGS on SKYPE at 1230 Pm MTN every Monday
-# Search devin_1496 and send message for access to Team Chats, answer any questions, receive guidance, and Network.
-# You can install our repo on Windows, Linux and Docker.
+# Deprecated
+# Deprecated
+# Please use https://github.com/YSTEMandChess/app.ystemandchess.com
 
 
 
